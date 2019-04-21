@@ -15,6 +15,9 @@ namespace HVS_Authentication
 
         static void Main(string[] args)
         {
+            IniFileParser iniParser = new IniFileParser("config.ini");
+            string value = iniParser.Read("username");
+            Console.WriteLine(value);
            
             HttpService.LoginAsync("dealer1kamal", "password", JWTService.GetComputerSid().Value, (response) =>{
 
