@@ -16,10 +16,11 @@ namespace HVS_Authentication
         static void Main(string[] args)
         {
             IniFileParser iniParser = new IniFileParser("config.ini");
-            string value = iniParser.Read("username");
-            Console.WriteLine(value);
+            string user = iniParser.Read("username");
+            string pass = iniParser.Read("password");
+            Console.WriteLine(user + " - " + pass);
            
-            HttpService.LoginAsync("dealer1kamal", "password", JWTService.GetComputerSid().Value, (response) =>{
+            HttpService.LoginAsync(user, pass, JWTService.GetComputerSid().Value, (response) =>{
 
                 Debug.WriteLine(response);
 
